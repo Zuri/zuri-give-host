@@ -1,0 +1,24 @@
+import { hasTimerPassed } from "./sessionStorageTimeManager";
+
+export function shouldOpenFormOnPageLoad() {
+  // --> Supported url parameters <--
+  const urlParam = "form.open";
+
+  // --> Get params from site URL <--
+  let searchParams = new URLSearchParams(document.location.search);
+
+  // --> If form_open URL param is true then return true <--
+  let paramValue = searchParams.get(urlParam)
+    ? searchParams.get(urlParam).toString().toUpperCase()
+    : null;
+
+  let shouldOpenOnPageLoad =
+    paramValue == "TRUE" || paramValue == "1" ? true : false;
+
+  // --> If not enough time has passed since the last time the page was refreshed, don't open the modal <--
+  let timerPassed = hasTimerPassed();
+  shouldOpenOnPageLoad =
+    timerPassed !== null ? timerPassed : shouldOpenFormOnPageLoad;
+
+  return shouldOpenOnPageLoad;
+}

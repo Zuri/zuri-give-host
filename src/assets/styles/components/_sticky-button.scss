@@ -1,11 +1,11 @@
 .position-fixed {
   z-index: 99999;
   &.start-0 {
-    transform: rotate( 90deg) translateY(-100%);
+    transform: rotate(90deg) translateY(-100%);
     transform-origin: 0% 0%;
   }
   &.start-100 {
-    transform: rotate( -90deg) translateY(-100%);
+    transform: rotate(-90deg) translateY(-100%);
     transform-origin: 0% 0%;
   }
 }

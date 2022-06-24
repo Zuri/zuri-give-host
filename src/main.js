@@ -1,12 +1,9 @@
 // Note: Using an Alias in Webpack
-import 'styles/index.scss';
-
-// Import Vue
-import Vue from 'vue';
-import iframeResize from 'iframe-resizer/js/iframeResizer';
-import App from './components/App.vue';
+import "./assets/styles/index.scss";
+import Vue from "vue";
+import App from "./App.vue";
 
 new Vue({
-    el: '#app',
-    render: h => h(App),
+  el: "#app",
+  render: (h) => h(App),
 });
