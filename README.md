@@ -1,8 +1,33 @@
-# Webpack 5 Vue.js Boilerplate
-
-Webpack 5 boilerplate using Vue.js, Babel, PostCSS and Sass with a hot dev server and an optimized production build.
+# Zuri Give Host
 
 # Usage
+
+Features:
+Web app accepts these url parameters:
+form.open (should form open on page load)
+form.id (passed to Iframe)
+ea.profile.id (passed to Iframe)
+supporter.appealCode (passed to Iframe)
+Example url params:
+?form.id=29654&ea.profile.id=1234&supporter.appealCode=1234&form.open=true
+
+Should Open Form On Page Load
+When the form.open url param is set to true, the lightbox form will open when the page loads.
+
+Session Storage Time Manager
+If the form has already opened on page load it won't automatically open on the site again until 5 minutes passes or a new session begins.
+
+Create Form Source
+Takes parameters from the url and passes them to the Engaging Networks Form.
+
+Modal
+Holds the EN form inside of a lightbox. Handles messaging between the Iframe and the Vue app.
+
+Toggle Modal Button
+Visibility of Modal / Lightbox is toggled by a button on the side of the page.
+
+ToastContainer
+Creates toast messages in the bottom right corner about the status of the form. For example: 'abandoned form' 'form completed'
 
 # Installing
 
@@ -42,13 +67,12 @@ Webpack 5 boilerplate using Vue.js, Babel, PostCSS and Sass with a hot dev serve
 
 - [`@babel-runtime`](https://babeljs.io/docs/en/babel-runtime) - Babel Runtime for dev babel/plugin-transform-runtime.
 
-# Other 
+# Other
 
 - [`core-js`](https://www.npmjs.com/package/core-js) - Main Library with polyfills for older Browsers
 - [`whatwg-fetch`](https://www.npmjs.com/package/whatwg-fetch) - For making promise based web request progammitically
 
-
-#  devDependencies
+# devDependencies
 
 # webpack
 
@@ -67,12 +91,11 @@ Webpack 5 boilerplate using Vue.js, Babel, PostCSS and Sass with a hot dev serve
 - [`@babel/plugin-transform-async-to-generator`](https://babeljs.io/docs/en/plugin-transform-async-to-generator) - Generator for async/await
 - [`@babel/plugin-proposal-class-properties`](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) - Use properties on a class
 
-
 # Vue Loaders
 
 - [`vue-loader`](https://www.npmjs.com/package/vue-loader) - webpack loader for Vue Single-File Components
 - [`vue-style-loader`](https://www.npmjs.com/package/vue-style-loader) - Load styles into the DOM
-- [`vue-template-compiler`](https://www.npmjs.com/package/vue-template-compiler) - Pre compilation of Vue 2.0 templates into render functions 
+- [`vue-template-compiler`](https://www.npmjs.com/package/vue-template-compiler) - Pre compilation of Vue 2.0 templates into render functions
 
 # Loaders
 
@@ -93,7 +116,6 @@ Webpack 5 boilerplate using Vue.js, Babel, PostCSS and Sass with a hot dev serve
 - [`css-minimizer-webpack-plugin`](https://webpack.js.org/plugins/css-minimizer-webpack-plugin/) - Optimize and minimize CSS assets
 - [`cross-env`](https://github.com/kentcdodds/cross-env) - Cross platform configuration
 - [`http-server`](https://www.npmjs.com/package/http-server) - HTTP server for testing the produktion build by running npm run prod
-
 
 # Author
 
