@@ -15,3 +15,5 @@ license
 node_modules/
 
 dist/
+
+ngrok.exe
