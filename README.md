@@ -4,13 +4,13 @@
 
 Features:  
 
-Web app accepts these url parameters:
-form.open (should form open on page load)
-form.id (passed to Iframe)
-ea.profile.id (passed to Iframe)
-supporter.appealCode (passed to Iframe)
-Example url params:
-?form.id=29654&ea.profile.id=1234&supporter.appealCode=1234&form.open=true
+Web app accepts these url parameters:  
+form.open (should form open on page load)  
+form.id (passed to Iframe)  
+ea.profile.id (passed to Iframe)  
+supporter.appealCode (passed to Iframe)  
+Example url params:  
+?form.id=29654&ea.profile.id=1234&supporter.appealCode=1234&form.open=true  
 
 Should Open Form On Page Load
 When the form.open url param is set to true, the lightbox form will open when the page loads.
