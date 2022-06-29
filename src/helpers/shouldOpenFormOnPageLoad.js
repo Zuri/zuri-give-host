@@ -1,8 +1,9 @@
 import { hasTimerPassed } from "./sessionStorageTimeManager";
+import { config } from "../../public/config";
 
 export function shouldOpenFormOnPageLoad() {
   // --> Supported url parameters <--
-  const urlParam = "form.open";
+  const urlParam = config.urlParams.formOpen; //form.open
 
   // --> Get params from site URL <--
   let searchParams = new URLSearchParams(document.location.search);
