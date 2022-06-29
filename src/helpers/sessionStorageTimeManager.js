@@ -1,6 +1,6 @@
 export const hasTimerPassed = () => {
   // --> Setup timer and session storage <--
-  const duration = 60 * 5;
+  const duration = 4;
   const date = new Date();
   const time = date.getTime() / 1000;
   const sessionTimeStart = sessionStorage.getItem("SessionTimeStart");

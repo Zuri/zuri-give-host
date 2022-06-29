@@ -3,7 +3,7 @@
     <!-- Modal & IFrame -->
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content bg-transparent border-0">
-        <div class="modal-body bg-white p-0 shadow-lg">
+        <div class="modal-body bg-white p-2 shadow-lg">
           <iframe
             class="border-0 overflow-auto"
             src="https://engage.collegefund.org/page/40031/donate/1"
@@ -12,10 +12,7 @@
           ></iframe>
         </div>
         <div class="modal-footer bg-transparent d-block text-center text-white">
-          <p>
-            Donations to Cystic Fibrosis Canada are tax-deductible to the
-            fullest extent allowed by law.
-          </p>
+          <p>Donations to the American Indian College Fund are...</p>
         </div>
       </div>
     </div>
