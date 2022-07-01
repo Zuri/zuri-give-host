@@ -8,9 +8,9 @@
 
 <script>
 // --> Components <--
-import ToastContainer from "./components/ToastContainer";
-import ToggleModalButton from "./components/ToggleModalButton";
-import DonationModal from "./components/DonationModal.vue";
+import DonationModal from "./components/DonationModal.vue"
+import ToggleModalButton from "./components/ToggleModalButton"
+import ToastContainer from "./components/ToastContainer"
 
 export default {
   name: "App",
@@ -23,8 +23,5 @@ export default {
   data: () => ({}),
   created() {},
   mounted() {},
-};
+}
 </script>
-
-<!-- https://engage.collegefund.org/page/40031/donate/1/ -->
-<!-- https://engage.collegefund.org/page/29654/donate/1?mode=DEMO -->
