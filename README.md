@@ -2,33 +2,59 @@
 
 # Usage
 
-Features:  
+Test URL: (For dev / demo purposes only)
+https://labs.zurigroup.com/donation-widget/?form_open=true
 
-Web app accepts these url parameters:  
-form.open (should form open on page load)  
-form.id (passed to Iframe)  
-ea.profile.id (passed to Iframe)  
-supporter.appealCode (passed to Iframe)  
-Example url params:  
-?form.id=29654&ea.profile.id=1234&supporter.appealCode=1234&form.open=true  
+---
 
-Should Open Form On Page Load
+ZURI_GIVE_HOST:
+Features:
+
+Web app accepts these url parameters:
+form.open (should form open on page load)
+form.id (passed to Iframe)
+ea.profile.id (passed to Iframe)
+supporter.appealCode (passed to Iframe)
+Example url params:
+?form.id=29654&ea.profile.id=1234&supporter.appealCode=1234&form.open=true
+
+Should Open Form On Page Load:
 When the form.open url param is set to true, the lightbox form will open when the page loads.
 
-Session Storage Time Manager
-If the form has already opened on page load it won't automatically open on the site again until 5 minutes passes or a new session begins.
+Session Storage Time Manager:
+If the form has already opened on page load it won't automatically open on the site again until 5 minutes (1 sec in dev mode) passes or a new session begins.
 
-Create Form Source
+Create Form Source:
 Takes parameters from the url and passes them to the Engaging Networks Form.
 
-Modal
+Modal:
 Holds the EN form inside of a lightbox. Handles messaging between the Iframe and the Vue app.
 
-Toggle Modal Button
+Toggle Modal Button:
 Visibility of Modal / Lightbox is toggled by a button on the side of the page.
 
-ToastContainer
+ToastContainer:
 Creates toast messages in the bottom right corner about the status of the form. For example: 'abandoned form' 'form completed'
+
+Config:
+public/config.js holds default values for the app. Update these values then run npm run build to quickly alter the app.
+
+---
+
+ZURI_GIVE_IFRAME:
+Issues:
+
+Carousel / Symbolic giving not working
+
+Payment posting is not working
+
+Payment section: 'Other' amount field does not auto fill in zeros and adjust to locale(?)
+
+Close form button should be on top right of iframe
+
+Payment error messages should be in a different location on the form
+
+Form inputs do not fit inside form container correctly
 
 # Installing
 
