@@ -3,7 +3,7 @@ export const config = {
   defaults: {
     rootURL: "collegefund.org",
     enFormID: 29654, //40031
-    isDemo: false,
+    isDemo: true,
   },
 
   // --> Supported url parameters <--
