@@ -13,7 +13,7 @@ const openToast = (toastElement) => {
 
 const initOpeners = () => {
   document.querySelectorAll(".widget-opener").forEach((el) => {
-    el.classList.remove("fade")
+    // el.classList.remove("fade")
     el.addEventListener("click", () => {
       modal.show()
     })

@@ -1,3 +1,9 @@
+.modal-dialog {
+  @include media-breakpoint-down(lg) {
+    max-width: calc(100% - #{$spacer * 2});
+  }
+}
+
 .modal-backdrop.fade.show {
   opacity: 0.5;
 }
