@@ -1,10 +1,6 @@
 # Zuri Give Host
 
 # Usage
-
-Test URL: (For dev / demo purposes only)
-https://labs.zurigroup.com/donation-widget/?form_open=true
-
 ---
 
 ZURI_GIVE_HOST:
