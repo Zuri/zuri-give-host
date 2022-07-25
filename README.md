@@ -41,21 +41,6 @@ public/config.js holds default values for the app. Update these values then run 
 
 ---
 
-ZURI_GIVE_IFRAME:
-Issues:
-
-Carousel / Symbolic giving not working
-
-Payment posting is not working
-
-Payment section: 'Other' amount field does not auto fill in zeros and adjust to locale(?)
-
-Close form button should be on top right of iframe
-
-Payment error messages should be in a different location on the form
-
-Form inputs do not fit inside form container correctly
-
 # Installing
 
 - Make sure you have a new version of Node installed
@@ -144,10 +129,3 @@ Form inputs do not fit inside form container correctly
 - [`cross-env`](https://github.com/kentcdodds/cross-env) - Cross platform configuration
 - [`http-server`](https://www.npmjs.com/package/http-server) - HTTP server for testing the produktion build by running npm run prod
 
-# Author
-
-- Per Olsen
-
-# License
-
-This project is open source and available under the [MIT License](LICENSE).
