@@ -4,8 +4,36 @@ import { Toast } from "bootstrap"
 let modal = null
 let complete = false
 
-const openToast = (toastElement) => {
-  const toast = new Toast(toastElement)
+const hideOpeners = () => {
+  document.querySelectorAll('.widget-opener').forEach(el => {
+    if (el.classList.contains('fade')) {
+      el.classList.remove('show')
+    } else {
+      el.classList.add('d-none')
+    }
+  })
+}
+
+const showOpeners = () => {
+  setTimeout(() => {
+    document.querySelectorAll('.widget-opener').forEach(el => {
+      if (el.classList.contains('fade')) {
+        el.classList.add('show')
+      } else {
+        el.classList.remove('d-none')
+      }
+    })
+  }, 750)
+}
+
+const hideToast = (toastElement) => {
+  Toast.getInstance(toastElement)?.hide()
+}
+
+const showToast = (toastElement) => {
+  const toast = new Toast(toastElement, {
+    autohide: false
+  })
   setTimeout(() => {
     toast.show()
   }, 500)
@@ -15,6 +43,8 @@ const initOpeners = () => {
   document.querySelectorAll(".widget-opener").forEach((el) => {
     // el.classList.remove("fade")
     el.addEventListener("click", () => {
+      hideOpeners()
+      hideToast(donationWidgetToastFail)
       modal.show()
     })
   })
@@ -23,17 +53,24 @@ const initOpeners = () => {
 const initClosers = () => {
   modal._element.addEventListener("hidden.bs.modal", (e) => {
     if (!complete) {
-      donationWidgetOpener.classList.remove("d-none")
+      // donationWidgetOpener.classList.remove("d-none")
 
-      openToast(donationWidgetToastFail)
+      showToast(donationWidgetToastFail)
+      showOpeners()
     } else {
       // reset form
       document
         .getElementById("donationIframe")
         .contentDocument.location.reload(true)
 
-      openToast(donationWidgetToastSuccess)
+      showToast(donationWidgetToastSuccess)
     }
+  })
+}
+
+const updateAmount = (amount) => {
+  document.querySelectorAll(".js-amount").forEach((el) => {
+    el.textContent = amount
   })
 }
 
@@ -53,7 +90,7 @@ const doThankYou = () => {
 }
 
 const initResizer = () => {
-  console.log("INIT RESIZER")
+  // console.log("INIT RESIZER")
   iFrameResize(
     {
       log: false,
@@ -61,6 +98,7 @@ const initResizer = () => {
       onMessage: ({ iframe, message }) => {
         switch (message.type || message) {
           case "ready":
+            showOpeners()
             document.querySelectorAll(".widget-opener.fade").forEach((el) => {
               el.classList.add("show")
             })
@@ -91,10 +129,4 @@ export const initModal = (el) => {
   initOpeners()
   initClosers()
   initResizer()
-
-  const updateAmount = (amount) => {
-    document.querySelectorAll(".js-amount").forEach((el) => {
-      el.textContent = amount
-    })
-  }
 }

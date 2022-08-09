@@ -1,10 +1,11 @@
 iframe {
   min-width: 100%;
+  transition: $transition-base;
   width: 1px;
 }
 
 .modal-backdrop.fade.show {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .modal-backdrop.fade {

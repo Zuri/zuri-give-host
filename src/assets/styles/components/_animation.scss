@@ -5,7 +5,7 @@ $heart-fill-color: $red;
   position: absolute;
   right: 0;
   top: 0;
-  width: 46px
+  width: 46px;
 }
 
 %heart-animate {
@@ -28,7 +28,7 @@ $heart-fill-color: $red;
   left: 0;
   position: absolute;
   top: 0;
-  width: .916em
+  width: 0.916em;
 }
 
 .dove {
@@ -42,42 +42,45 @@ $heart-fill-color: $red;
   }
 }
 
-%rose {
-  content: url(http://localhost/zuri/zuri-labs/host/src/images/icon-rose.png);
-  height: 1.75rem;
-  left: 0;
+%floater {
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  content: "";
+  display: inline-block;
+  height: 1.75em;
+  margin: auto;
   position: absolute;
+  right: 1em;
   top: 0;
   width: 1em;
-  bottom: 0;
-  margin: auto;
 }
 
-.rose {
-  position: relative;
-  vertical-align: middle;
-  // &::before,
-  // &::after {
-  //   @extend %rose;
-  // }
-  &::before {
-    @extend %rose;
+.feather {
+  &::before,
+  &::after {
+    @extend %floater;
   }
+
   &::before {
     animation: floatDelay 5s linear 3s infinite forwards;
-    animation: pulse 5s linear 2s infinite forwards;
+    background-image: url(data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABpCAMAAABRYbAEAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAANlBMVEWLIzGLIzGLIzGLIzGLIzGLIzGLIzGLIzGLIzGLIzGLIzGLIzGLIzGLIzGLIzGLIzGLIzH////Xrgw8AAAAEHRSTlMAwHAgUIDgQLDwEJCg0GAwgjCTgwAAAAFiS0dEEeK1PboAAAAHdElNRQfmCAgQBhs5FPwLAAADUElEQVRYw6WY26KEIAhFx8oulsX/f+0pLUUBtY5vM7UEgY3p7ycPUF3/+zoUAKjhI6zhGuP0CR7Aj/mL89MNw/LBdwNhrO/pCMP2H/g1PcE/6BR+ue4uheFVzLcMXt7ke8xgUO1sD2S0O95ReDStsKUw6O9enzFrhFcOhr2JNQsL2yZYAz+O74bbilQy3OJ3LxkGqNfoJrI+3qUZJpn1i9aFlmoLsFOHljWiCyyM/g3J8QOKw8dESpmtw0qqcl1m4YoVCNquOO3gA4RSS51WloP1E7hsZErUvy4vtuM2QOOdl8fZOo6MflZGFm1GCuf0U7ykJc3AwKk79mlQeZENOQsTCcTsPjdoxJgOcJAHOrTkitPhBSTR2M5N2emwLvQoOoFlSSKNIwrMwDBX06EQxjLM9cuYDVWGuba1N8KcmFAmyzD3FG1MxYDtzEPU39ktM+S5Es2Bg0uGZ5RGLppLwfCCqo/d9lTBcFepn9DERnleFy5227tnZ7am5IONS2OI5yxOK0YrBJtJospYK77CfK1Fp83l88os7PaNThsb43DGSk1cOg7B6yiIbtZ7zy57lLym2z7N5SrEeiYso9dDUBvdhKjXVqiQ2yETnWdy2fFLvgVxKFMw/Kgmf+LTZGw0zCT5OSflWTaejRs/18+fsLBzzkjNSjZsuDk71Ps4WfT8gpRPa+h9hlFcPBlm8O4dfaJ1cN9kcUkT/X9/5GZc+yFtJMomhWcfXWe43y5sJIJC+0gK7y5a94qPTu8HLf1JgnunIHz+IRUySw9Ht2L8TUoqBLfzFFZOofiMXnI6k6p2RYOOTqRCsi+37FHiNWHzPoHTuKdeE9bmR2CVwkuMdZ1NNjF9NY2n6tc6m+zb6xn8hflfYhNN2tOPu67JzmjZIz9e9CmFjf4rs0kH7NSdyVwO0uUObqyj9XBelfKpOS1BnXsDxZuCgcKJ4fJF3JjDyXRL+Zpgz+GtnU1Nq/R3lU1EfTUE9LPhagOXRI/n6upsUow7gttuwFBiZwQ33r2hAJtQc603jiZuLDp0l5aLoIxezBYD/5rWU00OBXrpVU0PDP3oy/pu/vJa/OmGW/cBDrv5tn2AT4n5PG1rW20S3Fm36/L+Rtw5383jdcFSee0PxEa6d8391AsAAAAASUVORK5CYII=);
+  }
+
+  &::after {
+    background-image: url(data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABpCAMAAABRYbAEAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAANlBMVEX////48OD48OD48OD48OD48OD48OD48OD48OD48OD48OD48OD48OD48OD48OD48OD48OD///8h1bVbAAAAEHRSTlMAwHAgUIDgQLDwEJCg0GAwgjCTgwAAAAFiS0dEAIgFHUgAAAAHdElNRQfmCAgQMy7NlvqeAAADUElEQVRYw6WY26KEIAhFx8oulsX/f+0pLUUBtY5vM7UEgY3p7ycPUF3/+zoUAKjhI6zhGuP0CR7Aj/mL89MNw/LBdwNhrO/pCMP2H/g1PcE/6BR+ue4uheFVzLcMXt7ke8xgUO1sD2S0O95ReDStsKUw6O9enzFrhFcOhr2JNQsL2yZYAz+O74bbilQy3OJ3LxkGqNfoJrI+3qUZJpn1i9aFlmoLsFOHljWiCyyM/g3J8QOKw8dESpmtw0qqcl1m4YoVCNquOO3gA4RSS51WloP1E7hsZErUvy4vtuM2QOOdl8fZOo6MflZGFm1GCuf0U7ykJc3AwKk79mlQeZENOQsTCcTsPjdoxJgOcJAHOrTkitPhBSTR2M5N2emwLvQoOoFlSSKNIwrMwDBX06EQxjLM9cuYDVWGuba1N8KcmFAmyzD3FG1MxYDtzEPU39ktM+S5Es2Bg0uGZ5RGLppLwfCCqo/d9lTBcFepn9DERnleFy5227tnZ7am5IONS2OI5yxOK0YrBJtJospYK77CfK1Fp83l88os7PaNThsb43DGSk1cOg7B6yiIbtZ7zy57lLym2z7N5SrEeiYso9dDUBvdhKjXVqiQ2yETnWdy2fFLvgVxKFMw/Kgmf+LTZGw0zCT5OSflWTaejRs/18+fsLBzzkjNSjZsuDk71Ps4WfT8gpRPa+h9hlFcPBlm8O4dfaJ1cN9kcUkT/X9/5GZc+yFtJMomhWcfXWe43y5sJIJC+0gK7y5a94qPTu8HLf1JgnunIHz+IRUySw9Ht2L8TUoqBLfzFFZOofiMXnI6k6p2RYOOTqRCsi+37FHiNWHzPoHTuKdeE9bmR2CVwkuMdZ1NNjF9NY2n6tc6m+zb6xn8hflfYhNN2tOPu67JzmjZIz9e9CmFjf4rs0kH7NSdyVwO0uUObqyj9XBelfKpOS1BnXsDxZuCgcKJ4fJF3JjDyXRL+Zpgz+GtnU1Nq/R3lU1EfTUE9LPhagOXRI/n6upsUow7gttuwFBiZwQ33r2hAJtQc603jiZuLDp0l5aLoIxezBYD/5rWU00OBXrpVU0PDP3oy/pu/vJa/OmGW/cBDrv5tn2AT4n5PG1rW20S3Fm36/L+Rtw5383jdcFSee0PxEa6d8391AsAAAAASUVORK5CYII=);
   }
 }
 
 @keyframes bounce {
   0% {
-    transform: translateY(0)
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px)
+    transform: translateY(-10px);
   }
   to {
-    transform: translateY(0)
+    transform: translateY(0);
   }
 }
 
@@ -85,33 +88,33 @@ $heart-fill-color: $red;
   0% {
     opacity: 1;
     top: -15px;
-    transform: rotate(0deg)
+    transform: rotate(0deg);
   }
   12% {
-    transform: rotate(-20deg) scale(.9)
+    transform: rotate(-20deg) scale(0.9);
   }
   24% {
-    opacity: .7;
+    opacity: 0.7;
     right: 3px;
-    transform: rotate(20deg) scale(.7)
+    transform: rotate(20deg) scale(0.7);
   }
   40% {
     right: -3px;
-    transform: rotate(-11deg) scale(.6)
+    transform: rotate(-11deg) scale(0.6);
   }
   70% {
-    opacity: .5;
+    opacity: 0.5;
     right: 3px;
-    transform: rotate(10deg) scale(.4)
+    transform: rotate(10deg) scale(0.4);
   }
   90% {
     right: -3px;
-    transform: scale(.2)
+    transform: scale(0.2);
   }
   to {
     opacity: 0;
     top: -120px;
-    transform: rotate(-5deg) scale(.1)
+    transform: rotate(-5deg) scale(0.1);
   }
 }
 
@@ -119,46 +122,46 @@ $heart-fill-color: $red;
   0% {
     opacity: 1;
     top: -15px;
-    transform: rotate(0deg)
+    transform: rotate(0deg);
   }
   6% {
-    transform: rotate(-20deg) scale(.9)
+    transform: rotate(-20deg) scale(0.9);
   }
   12% {
-    opacity: .7;
-    left: 3px;
-    transform: rotate(20deg) scale(.7) translateX(3px)
+    opacity: 0.7;
+    right: 3px;
+    transform: rotate(20deg) scale(0.7) translateX(3px);
   }
   20% {
-    left: -3px;
-    transform: rotate(-11deg) scale(.6) translateX(-3px)
+    right: -3px;
+    transform: rotate(-11deg) scale(0.6) translateX(-3px);
   }
   35% {
-    opacity: .5;
-    left: 3px;
-    transform: rotate(10deg) scale(.4) translateX(3px)
+    opacity: 0.5;
+    right: 3px;
+    transform: rotate(10deg) scale(0.4) translateX(3px);
   }
   45% {
-    left: -3px;
-    transform: scale(.2) translateX(-3px)
+    right: -3px;
+    transform: scale(0.3) translateX(-3px);
   }
   50%,
   100% {
     opacity: 0;
-    top: -120px;
-    transform: rotate(-5deg) scale(.1)
+    top: -200px;
+    transform: rotate(-5deg) scale(0.1);
   }
 }
 
 @keyframes pulse {
   0% {
-    transform: scale(1)
+    transform: scale(1);
   }
   20% {
-    transform: scale(1.2)
+    transform: scale(1.2);
   }
   30%,
   100% {
-    transform: scale(1)
+    transform: scale(1);
   }
 }

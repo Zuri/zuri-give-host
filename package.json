@@ -7,6 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js --progress",
+    "watch": "webpack --watch --config config/webpack.prod.js",
     "build": "webpack --config config/webpack.prod.js",
     "prod": "http-server ./dist -a localhost -p 8000 -o"
   },
@@ -29,6 +30,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^5.0.0",
     "css-minimizer-webpack-plugin": "^4.0.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.0.0-alpha.7",
     "http-server": "^14.1.1",
     "iframe-resizer": "^4.3.2",
@@ -39,6 +41,7 @@
     "postcss-preset-env": "^7.7.2",
     "sass-loader": "^10.0.3",
     "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
     "vue-loader": "^15.9.6",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.12",
@@ -53,6 +56,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
+    "animate.css": "^4.1.1",
     "core-js": "^3.10.0",
     "dotenv": "^16.0.1",
     "vue": "^2.6.12",

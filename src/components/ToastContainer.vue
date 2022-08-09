@@ -1,22 +1,31 @@
 <template>
-  <div class="toast-container position-absolute bottom-0 end-0 m-md-3">
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="donationWidgetToastSuccess">
-      <div class="toast-header">
-        <!-- <div class="rounded me-2 bg-success border border-primary" /> -->
-        <strong class="me-auto">Donation Form: Success</strong>
-        <small></small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  <div class="zuri-give">
+    <div class="toast-container position-fixed bottom-0 end-0 m-md-3">
+      <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="donationWidgetToastSuccess">
+        <div class="toast-header">
+          <!-- <div class="rounded me-2 bg-success border border-primary" /> -->
+          <strong class="me-auto">Donation Form: Success</strong>
+          <small></small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">Donation form completed</div>
       </div>
-      <div class="toast-body">Donation form completed</div>
-    </div>
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="donationWidgetToastFail">
-      <div class="toast-header">
-        <!-- <div class="rounded me-2 bg-success border border-primary" /> -->
-        <strong class="me-auto">Donation Form: Failure</strong>
-        <small></small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+
+      <div
+        class="toast animate__animated animate__fadeInUpBig animate__delay-1s animate__slower"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        id="donationWidgetToastFail"
+      >
+        <div class="toast-body">
+          <button type="button" class="widget-opener btn btn-primary mb-1 mt-2 rounded-pill position-relative w-100" id="buttonAction">
+            <span>Complete my <span class="js-amount"></span> gift!</span>
+            <span class="feather float-away"></span>
+          </button>
+          <button type="button" class="btn btn-link btn-sm w-100" data-bs-dismiss="toast" aria-label="Close this alert">Not today</button>
+        </div>
       </div>
-      <div class="toast-body">Donation form is incomplete</div>
     </div>
   </div>
 </template>

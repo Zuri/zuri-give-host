@@ -47,6 +47,16 @@ module.exports = merge(common, {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 64000, // Convert images < 8kb to base64 strings
+            name: 'images/[hash]-[name].[ext]'
+          }
+        }]
+      },
     ],
   },
   optimization: {

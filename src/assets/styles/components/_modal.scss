@@ -13,11 +13,17 @@
 }
 
 .modal-backdrop {
-  // background-color: #000;
   height: 100vh;
   left: 0;
   position: fixed;
   top: 0;
   width: 100vw;
-  // z-index: 99999;
+}
+
+.modal-body {
+  @include media-breakpoint-down(sm) {
+    > .bg-primary.rounded-circle {
+      background-color: $dark !important;
+    }
+  }
 }
