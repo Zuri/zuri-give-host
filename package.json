@@ -59,6 +59,11 @@
     "animate.css": "^4.1.1",
     "core-js": "^3.10.0",
     "dotenv": "^16.0.1",
+    "tsparticles": "^2.1.4",
+    "tsparticles-engine": "^2.1.4",
+    "tsparticles-preset-confetti": "^2.1.4",
+    "tsparticles-shape-heart": "^2.1.4",
+    "tsparticles-shape-image": "^2.1.4",
     "vue": "^2.6.12",
     "vue-router": "^3.4.9",
     "whatwg-fetch": "^3.6.2"

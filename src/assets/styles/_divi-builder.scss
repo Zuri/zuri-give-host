@@ -1,0 +1,11 @@
+.et_pb_row {
+  z-index: 0;
+
+  &.zuri-give {
+    z-index: 1;
+  }
+}
+
+.modal-backdrop {
+  z-index: 0;
+}

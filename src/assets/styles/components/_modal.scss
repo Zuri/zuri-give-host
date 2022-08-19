@@ -1,4 +1,7 @@
 .modal-dialog {
+  margin-left: auto !important;
+  margin-right: auto !important;
+
   @include media-breakpoint-down(lg) {
     max-width: calc(100% - #{$spacer * 2});
   }
