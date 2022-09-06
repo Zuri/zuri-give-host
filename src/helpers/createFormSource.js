@@ -39,6 +39,7 @@ export function createFormSource() {
     enProfileIDtext +
     enAppealCodeText
 
+  output = "https://cannonbbis.dev.alumni.uoguelph.ca/BBIS_Design/give/uofg"
   // --> Testing <--
   console.log("FORM DATA OUTPUT URL: ", output)
 

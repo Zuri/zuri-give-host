@@ -2,6 +2,8 @@ iframe {
   min-width: 100%;
   transition: $transition-base;
   width: 1px;
+
+  min-height: 50vh;
 }
 
 .modal-backdrop.fade.show {

@@ -12,7 +12,7 @@ export const initModal = (el) => {
 
   initOpeners()
   initClosers()
-  initResizer()
+  // initResizer()
   preloadConfetti()
 }
 

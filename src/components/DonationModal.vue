@@ -11,7 +11,7 @@
             </div>
             <iframe
               class="border-0 overflow-auto shadow-lg"
-              src="https://engage.collegefund.org/page/29654/donate/1"
+              src="https://bbis31298d.sky.blackbaud.com/give"
               id="donationIframe"
               title="Donation Widget"
             ></iframe>
