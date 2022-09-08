@@ -12,18 +12,17 @@
       </div>
 
       <div
-        class="toast animate__animated animate__fadeInUpBig animate__delay-1s animate__slower"
+        class="toast animate__animated animate__fadeInUpBig animate__slower"
         role="alert"
         aria-live="assertive"
         aria-atomic="true"
         id="donationWidgetToastFail"
       >
         <div class="toast-body">
-          <button type="button" class="widget-opener btn btn-primary mb-1 mt-2 rounded-pill position-relative w-100" id="buttonAction">
+          <button type="button" class="btn btn-primary mb-1 mt-2 rounded-pill position-relative w-100" id="buttonAction">
             <span>Complete my <span class="js-amount"></span> gift!</span>
-            <span class="feather float-away"></span>
           </button>
-          <button type="button" class="btn btn-link btn-sm w-100" data-bs-dismiss="toast" aria-label="Close this alert">Not today</button>
+          <!-- <button type="button" class="btn btn-link btn-sm w-100" data-bs-dismiss="toast" aria-label="Close this alert">Not today</button> -->
         </div>
       </div>
     </div>

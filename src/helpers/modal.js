@@ -21,7 +21,7 @@ const initOpeners = () => {
     window.dispatchEvent(new Event('resize'))
   })
 
-  document.querySelectorAll(".widget-opener").forEach((el) => {
+  document.querySelectorAll(".widget-opener, #buttonAction").forEach((el) => {
     el.addEventListener("click", () => {
       hideOpeners()
       hideToast(donationWidgetToastFail)
@@ -54,6 +54,7 @@ const showOpeners = () => {
       } else {
         el.classList.remove('d-none')
       }
+      // complete = false
     })
   }, 750)
 }
@@ -66,19 +67,19 @@ const showToast = (toastElement) => {
   const toast = new Toast(toastElement, {
     autohide: false
   })
-  setTimeout(() => {
-    toast.show()
-  }, 500)
+  // setTimeout(() => {
+  toast.show()
+  // }, 500)
 }
 
 const initClosers = () => {
   modal._element.addEventListener("hidden.bs.modal", (e) => {
     if (!complete) {
       showToast(donationWidgetToastFail)
-      showOpeners()
+      // showOpeners()
     } else {
       // reset form
-      document.getElementById("donationIframe").contentDocument.location.reload(true)
+      document.getElementById("donationIframe").src = document.getElementById("donationIframe").src
     }
   })
 }
@@ -265,7 +266,7 @@ const initResizer = () => {
           setTimeout(() => {
             hideOpeners()
           }, 1000)
-          doThankYou()
+          // doThankYou()
           break
       }
     },
