@@ -37,7 +37,7 @@
 // --> Packages <--
 import { Modal } from 'bootstrap'
 // --> Helpers <--
-import { initModal } from '../helpers/modal'
+import { hideOpeners, initModal } from '../helpers/modal'
 import { shouldOpenFormOnPageLoad } from '../helpers/shouldOpenFormOnPageLoad.js'
 import { createFormSource } from '../helpers/createFormSource.js'
 
@@ -51,10 +51,6 @@ export default {
       backdrop: 'static',
     })
     initModal(this.modal)
-
-    // if (shouldOpenFormOnPageLoad()) {
-    //   this.modal.show()
-    // }
 
     donationIframe.src = createFormSource()
   },

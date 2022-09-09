@@ -1,9 +1,11 @@
-import { hasTimerPassed } from "./sessionStorageTimeManager"
+// import { hasTimerPassed } from "./sessionStorageTimeManager"
 import { config } from "../../public/config"
+import { hasAlreadyLoaded } from "./sessionStorageLoadManager"
 
 export function shouldOpenFormOnPageLoad() {
   // --> Supported url parameters <--
   const urlParam = config.urlParams.formOpen //form.open
+  const autoOpen = zgAutoOpen || false
 
   // --> Get params from site URL <--
   let searchParams = new URLSearchParams(document.location.search)
@@ -13,13 +15,11 @@ export function shouldOpenFormOnPageLoad() {
     ? searchParams.get(urlParam).toString().toUpperCase()
     : null
 
-  let shouldOpenOnPageLoad =
-    paramValue == "TRUE" || paramValue == "1" ? true : false
+  let shouldOpenOnPageLoad = paramValue == "TRUE" || paramValue == "1" ? true : false
 
   // --> If not enough time has passed since the last time the page was refreshed, don't open the modal <--
-  let timerPassed = hasTimerPassed()
-  shouldOpenOnPageLoad =
-    timerPassed !== null ? timerPassed : shouldOpenFormOnPageLoad
+  // let timerPassed = hasTimerPassed()
+  // shouldOpenOnPageLoad = timerPassed !== null ? timerPassed : shouldOpenFormOnPageLoad
 
-  return shouldOpenOnPageLoad
+  return (shouldOpenOnPageLoad || autoOpen) && !hasAlreadyLoaded()
 }
