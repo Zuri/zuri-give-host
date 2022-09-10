@@ -5,7 +5,7 @@ import { hasAlreadyLoaded } from "./sessionStorageLoadManager"
 export function shouldOpenFormOnPageLoad() {
   // --> Supported url parameters <--
   const urlParam = config.urlParams.formOpen //form.open
-  const autoOpen = zgAutoOpen || false
+  const autoOpen = typeof zgAutoOpen !== 'undefined' ? zgAutoOpen : false
 
   // --> Get params from site URL <--
   let searchParams = new URLSearchParams(document.location.search)

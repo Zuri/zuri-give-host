@@ -7,13 +7,12 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
-  // devtool: false,
-  devtool: 'source-map',
+  devtool: false,
+  // devtool: 'source-map',
 
   output: {
     path: paths.build,
     publicPath: '/',
-    // filename: 'js/[name].[contenthash].bundle.js',
     filename: '[name].js',
   },
 
@@ -25,7 +24,6 @@ module.exports = merge(common, {
     // Extracts CSS into separate files
     // Note: style-loader is for development, MiniCssExtractPlugin is for production
     new MiniCssExtractPlugin({
-      // filename: 'css/[name].[contenthash].css',
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),

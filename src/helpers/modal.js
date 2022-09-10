@@ -1,3 +1,4 @@
+import iframeResize from 'iframe-resizer/js/iframeResizer'
 import { Toast } from "bootstrap"
 import { clearSessionStorage } from "./sessionStorageLoadManager"
 import { shouldOpenFormOnPageLoad } from "./shouldOpenFormOnPageLoad"
