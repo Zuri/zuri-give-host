@@ -19,14 +19,31 @@ export const initModal = (el) => {
 }
 
 const initOpeners = () => {
+  const additionalButton = zgAdditionalButton || null
+  const additionalButtonElement = additionalButton ? document.querySelector(additionalButton) : null
+
   modal._element.addEventListener('shown.bs.modal', function(event) {
     hideOpeners()
     hideToast(donationWidgetToastFail)
     window.dispatchEvent(new Event('resize'))
   })
 
-  document.querySelectorAll(".widget-opener, #buttonAction").forEach((el) => {
+  document.querySelectorAll('.widget-opener, #buttonAction').forEach((el) => {
     el.addEventListener('click', () => modal.show())
+  })
+
+  // Converts additional button to an opener
+  window.addEventListener('load', () => {
+    if (additionalButton && additionalButtonElement) {
+      setTimeout(() => {
+        additionalButtonElement.removeAttribute('href')
+        additionalButtonElement.replaceWith(additionalButtonElement.cloneNode(true))
+        document.querySelector(additionalButton).addEventListener('click', (e) => {
+          e.preventDefault()
+          modal.show()
+        })
+      }, 1000)
+    }
   })
 }
 

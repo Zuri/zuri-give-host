@@ -1,15 +1,15 @@
-const pathtoresolve = require("path");
-const paths = require("./paths");
+const pathtoresolve = require("path")
+const paths = require("./paths")
 
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin")
 
 module.exports = {
   // Where webpack looks to start building the bundle
-  entry: ["whatwg-fetch", paths.src + "/main.js"],
+  entry: ["whatwg-fetch", paths.src + "/zurigive.js"],
 
   resolve: {
     extensions: [".js", ".vue"],
@@ -89,4 +89,4 @@ module.exports = {
       { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: "asset/inline" },
     ],
   },
-};
+}
