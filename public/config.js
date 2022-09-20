@@ -1,8 +1,8 @@
 export const config = {
   // --> Default values config <--
   defaults: {
-    rootURL: "collegefund.org",
-    enFormID: 29654, //40031
+    rootURL: "zurigroup.com",
+    enFormID: 113400, //40031
     isDemo: true,
   },
 

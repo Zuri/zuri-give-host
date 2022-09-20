@@ -2,6 +2,7 @@ const paths = require('./paths')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
 
+const { GitRevisionPlugin } = require('git-revision-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
@@ -13,7 +14,7 @@ module.exports = merge(common, {
   output: {
     path: paths.build,
     publicPath: '/',
-    filename: '[name].js',
+    filename: '[name].[git-revision-branch].js',
   },
 
 
@@ -24,7 +25,7 @@ module.exports = merge(common, {
     // Extracts CSS into separate files
     // Note: style-loader is for development, MiniCssExtractPlugin is for production
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: '[name].[git-revision-branch].css',
       chunkFilename: '[id].css',
     }),
   ],
