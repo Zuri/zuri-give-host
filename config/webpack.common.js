@@ -5,6 +5,7 @@ const { GitRevisionPlugin } = require('git-revision-webpack-plugin')
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
 
@@ -59,6 +60,13 @@ module.exports = {
       favicon: paths.src + "/assets/images/favicon.png",
       template: paths.src + "/layouts/template.html", // template file
       filename: "index.html", // output file
+    }),
+    new WebpackBuildNotifierPlugin({
+      title: 'Zuri Give Host',
+      // logo: path.resolve('./favicon-16x16.png'),
+      showDuration: true,
+      successSound: 'Ping',
+      suppressSuccess: false,
     }),
   ],
 

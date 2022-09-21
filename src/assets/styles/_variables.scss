@@ -1038,11 +1038,11 @@ $zindex-sticky: 1020 !default;
 $zindex-fixed: 1030 !default;
 $zindex-offcanvas-backdrop: 1040 !default;
 $zindex-offcanvas: 1045 !default;
-$zindex-modal-backdrop: 1050 !default;
-$zindex-modal: 1055 !default;
+$zindex-modal-backdrop: 2147483646;
+$zindex-modal: 2147483647;
 $zindex-popover: 1070 !default;
 $zindex-tooltip: 1080 !default;
-$zindex-toast: 1090 !default;
+$zindex-toast: 2147483647;
 // scss-docs-end zindex-stack
 
 // Navs
@@ -1561,15 +1561,15 @@ $spinner-border-width-sm: 0.2em !default;
 // Close
 
 // scss-docs-start close-variables
-$btn-close-width: 0.5em;
+$btn-close-width: 1em;
 $btn-close-height: $btn-close-width !default;
 $btn-close-padding-x: 0.25em !default;
 $btn-close-padding-y: $btn-close-padding-x !default;
 $btn-close-color: $black !default;
 $btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$btn-close-color}'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>") !default;
 $btn-close-focus-shadow: $input-btn-focus-box-shadow !default;
-$btn-close-opacity: 0.5 !default;
-$btn-close-hover-opacity: 0.75 !default;
+$btn-close-opacity: 0.8333;
+$btn-close-hover-opacity: 1;
 $btn-close-focus-opacity: 1 !default;
 $btn-close-disabled-opacity: 0.25 !default;
 $btn-close-white-filter: invert(1) grayscale(100%) brightness(200%) !default;
