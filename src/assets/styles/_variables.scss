@@ -767,9 +767,9 @@ $btn-link-hover-color: var(--#{$prefix}link-hover-color) !default;
 $btn-link-disabled-color: $gray-600 !default;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius: $border-radius !default;
-$btn-border-radius-sm: $border-radius-sm !default;
-$btn-border-radius-lg: $border-radius-lg !default;
+$btn-border-radius: 0;
+$btn-border-radius-sm: 0;
+$btn-border-radius-lg: 0;
 
 $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
 
@@ -1038,11 +1038,11 @@ $zindex-sticky: 1020 !default;
 $zindex-fixed: 1030 !default;
 $zindex-offcanvas-backdrop: 1040 !default;
 $zindex-offcanvas: 1045 !default;
-$zindex-modal-backdrop: 2147483646;
-$zindex-modal: 2147483647;
+$zindex-modal-backdrop: 2147483645;
+$zindex-modal: 2147483646;
 $zindex-popover: 1070 !default;
 $zindex-tooltip: 1080 !default;
-$zindex-toast: 2147483647;
+$zindex-toast: 2147483646;
 // scss-docs-end zindex-stack
 
 // Navs
@@ -1342,12 +1342,12 @@ $popover-arrow-outer-color: var(--#{$prefix}border-color-translucent) !default;
 
 // scss-docs-start toast-variables
 $toast-max-width: 350px !default;
-$toast-padding-x: 0.75rem !default;
-$toast-padding-y: 0.5rem !default;
+$toast-padding-x: 0;
+$toast-padding-y: 0;
 $toast-font-size: 1rem;
 $toast-color: null !default;
-$toast-background-color: rgba($white, 0.9);
-$toast-border-width: $border-width !default;
+$toast-background-color: transparent;
+$toast-border-width: 0;
 $toast-border-color: $light;
 $toast-border-radius: $border-radius !default;
 $toast-box-shadow: none;

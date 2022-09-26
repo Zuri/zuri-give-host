@@ -1,10 +1,11 @@
 import iframeResize from 'iframe-resizer/js/iframeResizer'
-import { Toast } from "bootstrap"
+import { Toast, Tooltip } from "bootstrap"
 import { clearSessionStorage } from "./sessionStorageLoadManager"
 import { shouldOpenFormOnPageLoad } from "./shouldOpenFormOnPageLoad"
 import { tsParticles } from "tsparticles-engine"
 import { loadConfettiPreset } from "tsparticles-preset-confetti"
 import { loadImageShape } from "tsparticles-shape-image"
+import { options } from "../../public/config"
 
 let modal = null
 let complete = false
@@ -19,8 +20,11 @@ export const initModal = (el) => {
 }
 
 const initOpeners = () => {
-  const additionalButton = typeof zgAdditionalButton !== 'undefined' ? zgAdditionalButton : null
-  const additionalButtonElement = additionalButton ? document.querySelector(additionalButton) : null
+  console.log(options.buttonAdditional.selector)
+  const additionalButton = options.buttonAdditional.enable ? document.querySelector(options.buttonAdditional.selector) : null
+  console.log(options.buttonAdditional.enable ? document.querySelector(options.buttonAdditional.selector) : null)
+
+  console.log(`additionalButton: ${additionalButton}`)
 
   modal._element.addEventListener('shown.bs.modal', function(event) {
     hideOpeners()
@@ -34,15 +38,30 @@ const initOpeners = () => {
 
   // Converts additional button to an opener
   window.addEventListener('load', () => {
-    if (additionalButton && additionalButtonElement) {
+    if (additionalButton) {
+      let newButton
+      let tooltip
+
       setTimeout(() => {
-        additionalButtonElement.removeAttribute('href')
-        additionalButtonElement.replaceWith(additionalButtonElement.cloneNode(true))
-        document.querySelector(additionalButton).addEventListener('click', (e) => {
+        // Cloning and replacing the original element removes all previously attached event listeners
+        newButton = additionalButton.cloneNode(true)
+        newButton.removeAttribute('href')
+        newButton.removeAttribute('target')
+        // Demo tooltip for additional button
+        // newButton.dataset.bsContainer = newButton
+        newButton.dataset.bsTitle = "I can open the demo too!"
+        newButton.dataset.bsToggle = 'tooltip'
+        newButton.dataset.bsSelector = options.buttonAdditional.selector
+        additionalButton.replaceWith(newButton)
+        tooltip = new Tooltip(newButton, {
+          selector: options.buttonAdditional.selector,
+          title: "I can open the demo too!",
+        })
+        newButton.addEventListener('click', (e) => {
           e.preventDefault()
           modal.show()
         })
-      }, 1000)
+      }, 100)
     }
   })
 }
@@ -95,6 +114,46 @@ const updateAmount = (amount) => {
   document.querySelectorAll(".js-amount").forEach((el) => {
     el.textContent = amount
   })
+}
+
+const initResizer = () => {
+  let ready = false
+
+  iFrameResize({
+    log: false,
+    checkOrigin: false,
+    onMessage: ({ iframe, message }) => {
+      switch (message.type || message) {
+        case "ready":
+          if (!ready) {
+            if (shouldOpenFormOnPageLoad()) {
+              modal.show()
+            } else if (!modal._element.classList.contains('show')) {
+              showOpeners()
+            }
+            ready = !ready
+          }
+          break
+        case "amount change":
+          updateAmount(message.value)
+          break
+        case "thank you":
+          complete = true
+          doThankYou()
+          hideOpeners()
+          clearSessionStorage()
+          break
+      }
+    },
+  },
+    "#donationIframe"
+  )
+}
+
+const preloadConfetti = () => {
+  document.body.appendChild(document.getElementById("tsparticles"))
+  loadConfettiPreset(tsParticles)
+  loadImageShape(tsParticles)
 }
 
 const doThankYou = () => {
@@ -248,47 +307,11 @@ const doThankYou = () => {
     //   }
     // ]
   }
+
   setTimeout(() => {
-    tsParticles.load("tsparticles", tsParticlesConfig)
+    // tsParticles.load("tsparticles", tsParticlesConfig)
+    tsParticles.load("tsparticles", {
+      preset: "confetti",
+    })
   }, 1000)
-}
-
-const initResizer = () => {
-  let ready = false
-
-  iFrameResize({
-    log: false,
-    checkOrigin: false,
-    onMessage: ({ iframe, message }) => {
-      switch (message.type || message) {
-        case "ready":
-          if (!ready) {
-            if (shouldOpenFormOnPageLoad()) {
-              modal.show()
-            } else if (!modal._element.classList.contains('show')) {
-              showOpeners()
-            }
-            ready = !ready
-          }
-          break
-        case "amount change":
-          updateAmount(message.value)
-          break
-        case "thank you":
-          complete = true
-          doThankYou()
-          hideOpeners()
-          clearSessionStorage()
-          break
-      }
-    },
-  },
-    "#donationIframe"
-  )
-}
-
-const preloadConfetti = () => {
-  document.body.appendChild(document.getElementById("tsparticles"))
-  loadConfettiPreset(tsParticles)
-  loadImageShape(tsParticles)
 }

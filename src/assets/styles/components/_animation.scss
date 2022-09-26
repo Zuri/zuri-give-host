@@ -1,3 +1,7 @@
+#tsparticles {
+  z-index: 21474836467;
+}
+
 $heart-fill-color: $red;
 %heart {
   content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 38'><path fill='#{$heart-fill-color}' d='M33.707 0C29.268 0 25.174 2.166 23 5.664 20.826 2.166 16.732 0 12.293 0 5.504 0 0 5.693 0 11.83 0 27.245 23 38 23 38s23-10.755 23-26.17C46 5.693 40.496 0 33.707 0z'/></svg>");
