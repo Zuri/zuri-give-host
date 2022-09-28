@@ -21,5 +21,6 @@ export function shouldOpenFormOnPageLoad() {
   // let timerPassed = hasTimerPassed()
   // shouldOpenOnPageLoad = timerPassed !== null ? timerPassed : shouldOpenFormOnPageLoad
 
-  return (shouldOpenOnPageLoad || autoOpen) && !hasAlreadyLoaded()
+  // return (shouldOpenOnPageLoad || autoOpen) && !hasAlreadyLoaded()
+  return (shouldOpenOnPageLoad || autoOpen)
 }

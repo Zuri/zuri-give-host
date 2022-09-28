@@ -119,6 +119,7 @@ const updateAmount = (amount) => {
 }
 
 const initResizer = () => {
+  const iframe = document.getElementById('donationIframe')
   let ready = false
 
   iFrameResize({
@@ -140,6 +141,7 @@ const initResizer = () => {
           updateAmount(message.value)
           break
         case "thank you":
+          iframe.iFrameResizer.resize()
           complete = true
           doThankYou()
           hideOpeners()
@@ -150,6 +152,9 @@ const initResizer = () => {
   },
     "#donationIframe"
   )
+  window.addEventListener('resize', () => {
+    iframe.iFrameResizer.resize()
+  })
 }
 
 const preloadConfetti = () => {

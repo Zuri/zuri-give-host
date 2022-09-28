@@ -12,6 +12,7 @@
               src="https://engage.collegefund.org/page/29654/donate/1"
               id="donationIframe"
               title="Donation Widget"
+              allow="fullscreen"
             ></iframe>
           </div>
           <div class="d-none modal-footer bg-transparent border-0 d-block text-center text-white">
