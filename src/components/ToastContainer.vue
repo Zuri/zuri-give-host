@@ -20,7 +20,7 @@
       >
         <div class="toast-body">
           <button type="button" class="btn btn-primary mb-1 mt-2 rounded-pill position-relative w-100" id="buttonAction">
-            <span>Complete my <span class="js-amount"></span> gift!</span>
+            <span role="text"><span class="js-toast-text-prefix"></span> <span class="js-amount"></span> <span class="js-toast-text-suffix"></span></span>
           </button>
           <!-- <button type="button" class="btn btn-link btn-sm w-100" data-bs-dismiss="toast" aria-label="Close this alert">Not today</button> -->
         </div>
@@ -30,8 +30,13 @@
 </template>
 
 <script>
+import { options } from '../../public/config'
 export default {
   name: 'ToastContainer',
+  mounted() {
+    document.querySelectorAll('.js-toast-text-prefix').forEach((el) => (el.textContent = options.toastMessage.prefix))
+    document.querySelectorAll('.js-toast-text-suffix').forEach((el) => (el.textContent = options.toastMessage.suffix))
+  },
 }
 </script>
 

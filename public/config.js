@@ -1,9 +1,21 @@
 export const config = {
   // --> Default values config <--
   defaults: {
-    rootURL: "collegefund.org",
-    enFormID: 29654, //40031
-    isDemo: true,
+    autoOpen: false, // Should the modal open on page load - true | false
+    baseUrl: "engage.collegefund.org", // EN base URL
+    button: { // Fixed position button that opens the modal
+      enable: true, // Toggles button vivbility - true | false
+      placement: {
+        x: "right", // Where to place button horizontally - left | center | right
+        y: "center", // Where to place the button vertically - top | center | bottom
+      },
+      text: "Give More Life", // Text for widget opener button - string
+    },
+    formId: 29654, // EN form ID - integer
+    toastMessage: {
+      prefix: "Complete my", // Toast text before gift amount and recurrence - string
+      suffix: "gift!", // Toast text after gift amount and recurrence - string
+    }
   },
 
   // --> Supported url parameters <--
@@ -15,4 +27,5 @@ export const config = {
   },
 }
 
-// --> Example Params: ?form.id=29654&ea.profile.id=1234&supporter.appealCode=1234&form.open=true <--
+// Combines the default values with  option values
+export const options = typeof zgOptions === "object" ? Object.assign(config.defaults, zgOptions) : config.defaults

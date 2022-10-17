@@ -19,8 +19,8 @@ export const initModal = (el) => {
 }
 
 const initOpeners = () => {
-  const additionalButton = zgAdditionalButton || null
-  const additionalButtonElement = additionalButton ? document.querySelector(additionalButton) : null
+  const additionalButton = null
+  const additionalButtonElement = null
 
   modal._element.addEventListener('shown.bs.modal', function(event) {
     hideOpeners()

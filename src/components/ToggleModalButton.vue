@@ -6,15 +6,19 @@
         class="align-items-center btn btn-lg btn-primary d-flex fade justify-content-center text-nowrap widget-opener"
         id="donationWidgetOpener"
       >
-        <span>Give More Life</span>
+        <span class="js-button-text"></span>
       </button>
     </div>
   </div>
 </template>
 
 <script>
+import { options } from '../../public/config'
 export default {
   name: 'ToggleModalButton',
+  mounted() {
+    document.querySelectorAll('.js-button-text').forEach((el) => (el.textContent = options.button.text))
+  },
 }
 </script>
 
