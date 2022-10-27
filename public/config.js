@@ -4,7 +4,7 @@ export const config = {
     autoOpen: false, // Should the modal open on page load - true | false
     baseUrl: "en.zurigroup.com", // EN base URL
     button: { // Fixed button that opens the modal
-      enable: true, // Toggles button vivbility - true | false
+      enable: true, // Toggles button visibility - true | false
       placement: {
         x: "right", // Where to place button horizontally - left | center | right
         y: "center", // Where to place the button vertically - top | center | bottom
@@ -15,7 +15,7 @@ export const config = {
       enable: false, // Toggles additional button. Setting this to true will overwrite any existing event handlers - true | false
       selector: "" // CSS selector for additional button - string
     },
-    enableAnimations: true, // Toggles animations - true | false
+    enableAnimations: false, // Toggles animations - true | false
     formId: 113400, // EN form ID - integer
     formType: "donate", // EN page type - data-capture | donate | emailtotarget | petition | survey | tweettotarget
     toastMessage: {
@@ -28,6 +28,7 @@ export const config = {
   urlParams: {
     formID: "form.id",
     profileID: "ea.profile.id",
+    trackingID: "ea.tracking.id",
     appealCode: "supporter.appealCode",
     formOpen: "form.open",
   },

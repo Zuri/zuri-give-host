@@ -18,15 +18,16 @@ export const initModal = (el) => {
   initOpeners()
   initClosers()
   initResizer()
-  preloadConfetti()
+  if (options.enableAnimations) {
+    preloadConfetti()
+  }
 }
 
 const initOpeners = () => {
-  console.log(options.buttonAdditional.selector)
+  // console.log(options.buttonAdditional.selector)
   const additionalButton = options.buttonAdditional.enable ? document.querySelector(options.buttonAdditional.selector) : null
-  console.log(options.buttonAdditional.enable ? document.querySelector(options.buttonAdditional.selector) : null)
-
-  console.log(`additionalButton: ${additionalButton}`)
+  // console.log(options.buttonAdditional.enable ? document.querySelector(options.buttonAdditional.selector) : null)
+  // console.log(`additionalButton: ${additionalButton}`)
 
   modal._element.addEventListener('shown.bs.modal', function(event) {
     hideOpeners()
@@ -143,7 +144,9 @@ const initResizer = () => {
         case "thank you":
           iframe.iFrameResizer.resize()
           complete = true
-          doThankYou()
+          if (options.enableAnimations) {
+            doThankYou()
+          }
           hideOpeners()
           clearSessionStorage()
           break
