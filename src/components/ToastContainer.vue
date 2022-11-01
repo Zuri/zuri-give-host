@@ -19,7 +19,7 @@
         id="donationWidgetToastFail"
       >
         <div class="toast-body">
-          <button type="button" class="btn btn-primary mb-1 mt-2 rounded-pill position-relative w-100" id="buttonAction">
+          <button type="button" class="btn btn-primary mb-1 mt-2 rounded-pill position-relative w-100" id="resume-purchase">
             <span role="text"><span class="js-toast-text-prefix"></span> <span class="js-amount"></span> <span class="js-toast-text-suffix"></span></span>
           </button>
         </div>
