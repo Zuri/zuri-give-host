@@ -1,11 +1,11 @@
 // import { hasTimerPassed } from "./sessionStorageTimeManager"
-import { config } from "../../public/config"
+import { config, options } from "../../public/config"
 import { hasAlreadyLoaded } from "./sessionStorageLoadManager"
 
 export function shouldOpenFormOnPageLoad() {
   // --> Supported url parameters <--
   const urlParam = config.urlParams.formOpen //form.open
-  const autoOpen = typeof zgAutoOpen !== 'undefined' ? zgAutoOpen : false
+  const autoOpen = typeof options.AutoOpen !== 'undefined' ? options.autoOpen : false
 
   // --> Get params from site URL <--
   let searchParams = new URLSearchParams(document.location.search)
