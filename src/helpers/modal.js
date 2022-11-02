@@ -35,7 +35,7 @@ const initOpeners = () => {
     window.dispatchEvent(new Event('resize'))
   })
 
-  document.querySelectorAll('.widget-opener, #buttonAction').forEach((el) => {
+  document.querySelectorAll('.widget-opener, #resume-purchase').forEach((el) => {
     el.addEventListener('click', () => modal.show())
   })
 

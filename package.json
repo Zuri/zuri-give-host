@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js --progress",
-    "watch": "webpack --watch --config config/webpack.prod.js",
+    "watch": "webpack --watch --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js",
     "prod": "http-server ./dist -a localhost -p 8000 -o"
   },
@@ -35,7 +35,7 @@
     "html-webpack-plugin": "^5.0.0-alpha.7",
     "http-server": "^14.1.1",
     "iframe-resizer": "^4.3.2",
-    "mini-css-extract-plugin": "^1.0.0",
+    "mini-css-extract-plugin": "^1.6.2",
     "node-sass": "^7.0.1",
     "path": "^0.12.7",
     "postcss-loader": "^4.0.4",
