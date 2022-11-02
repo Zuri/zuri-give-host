@@ -6,14 +6,13 @@
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content bg-transparent border-0">
           <div class="modal-body">
-            <div class="bg-dark rounded-circle d-flex p-2" style="position: absolute; right: -0.75rem; top: -0.75rem">
-              <button type="button" class="btn-close btn-close-white m-auto bg-transparent" data-bs-dismiss="modal" aria-label="Close" />
-            </div>
+            <button type="button" class="bg-white btn-close m-auto p-2 position-absolute rounded-circle" data-bs-dismiss="modal" aria-label="Close" />
             <iframe
               class="border-0 overflow-auto shadow-lg"
               src="https://engage.collegefund.org/page/29654/donate/1"
               id="donationIframe"
               title="Donation Widget"
+              allow="fullscreen"
             ></iframe>
           </div>
           <div class="d-none modal-footer bg-transparent border-0 d-block text-center text-white">
@@ -37,8 +36,7 @@
 // --> Packages <--
 import { Modal } from 'bootstrap'
 // --> Helpers <--
-import { hideOpeners, initModal } from '../helpers/modal'
-import { shouldOpenFormOnPageLoad } from '../helpers/shouldOpenFormOnPageLoad.js'
+import { initModal } from '../helpers/modal'
 import { createFormSource } from '../helpers/createFormSource.js'
 
 export default {
@@ -47,6 +45,7 @@ export default {
     modal: null,
   }),
   mounted() {
+    document.body.appendChild(document.querySelector('.zuri-give').parentElement)
     this.modal = new Modal(this.$refs.donationModal, {
       backdrop: 'static',
     })

@@ -1,0 +1,7 @@
+.toast-container {
+  @include media-breakpoint-down(md) {
+    left: 50%;
+    right: auto !important;
+    transform: translateX(-50%);
+  }
+}

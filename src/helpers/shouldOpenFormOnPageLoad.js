@@ -5,7 +5,7 @@ import { hasAlreadyLoaded } from "./sessionStorageLoadManager"
 export function shouldOpenFormOnPageLoad() {
   // --> Supported url parameters <--
   const urlParam = config.urlParams.formOpen //form.open
-  const autoOpen = options.autoOpen
+  const autoOpen = typeof options.autoOpen !== 'undefined' ? options.autoOpen : false
 
   // --> Get params from site URL <--
   let searchParams = new URLSearchParams(document.location.search)
@@ -21,5 +21,6 @@ export function shouldOpenFormOnPageLoad() {
   // let timerPassed = hasTimerPassed()
   // shouldOpenOnPageLoad = timerPassed !== null ? timerPassed : shouldOpenFormOnPageLoad
 
-  return (shouldOpenOnPageLoad || autoOpen) && !hasAlreadyLoaded()
+  // return (shouldOpenOnPageLoad || autoOpen) && !hasAlreadyLoaded()
+  return (shouldOpenOnPageLoad || autoOpen)
 }

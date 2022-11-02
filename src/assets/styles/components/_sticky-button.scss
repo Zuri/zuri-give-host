@@ -1,9 +1,15 @@
 .position-fixed {
-  z-index: 99999;
+  z-index: $zindex-toast;
+
   &.start-0 {
     transform: rotate(90deg) translateY(-100%);
     transform-origin: 0% 0%;
   }
+
+  &.start-50 {
+    transform: translateX(-50%);
+  }
+
   &.start-100 {
     transform: rotate(-90deg) translateX(-50%) translateY(-100%);
     transform-origin: 0% 0%;

@@ -1,9 +1,11 @@
 const pathtoresolve = require("path")
 const paths = require("./paths")
 
+const { GitRevisionPlugin } = require('git-revision-webpack-plugin')
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
 
@@ -23,7 +25,7 @@ module.exports = {
   // Where webpack outputs the assets and bundles
   output: {
     path: paths.build,
-    filename: "[name].bundle.js",
+    filename: "[name].[git-revision-branch].bundle.js",
     publicPath: "/",
   },
 
@@ -34,7 +36,9 @@ module.exports = {
 
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
-
+    new GitRevisionPlugin({
+      branch: true,
+    }),
     // Copies files from target to destination folder
     new CopyWebpackPlugin({
       patterns: [
@@ -56,6 +60,13 @@ module.exports = {
       favicon: paths.src + "/assets/images/favicon.png",
       template: paths.src + "/layouts/template.html", // template file
       filename: "index.html", // output file
+    }),
+    new WebpackBuildNotifierPlugin({
+      title: 'Zuri Give Host',
+      // logo: path.resolve('./favicon-16x16.png'),
+      showDuration: true,
+      successSound: 'Ping',
+      suppressSuccess: false,
     }),
   ],
 

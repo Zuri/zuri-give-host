@@ -1,10 +1,13 @@
 import iframeResize from 'iframe-resizer/js/iframeResizer'
-import { Toast } from "bootstrap"
+import { Toast, Tooltip } from "bootstrap"
 import { clearSessionStorage } from "./sessionStorageLoadManager"
 import { shouldOpenFormOnPageLoad } from "./shouldOpenFormOnPageLoad"
-// import { tsParticles } from "tsparticles-engine"
-// import { loadConfettiPreset } from "tsparticles-preset-confetti"
-// import { loadImageShape } from "tsparticles-shape-image"
+import { tsParticles } from "tsparticles-engine"
+import { loadConfettiPreset } from "tsparticles-preset-confetti"
+import { loadImageShape } from "tsparticles-shape-image"
+import { options } from "../../public/config"
+import { loadHeartShape } from "tsparticles-shape-heart"
+import { loadStarShape } from "tsparticles-shape-star"
 
 let modal = null
 let complete = false
@@ -15,12 +18,16 @@ export const initModal = (el) => {
   initOpeners()
   initClosers()
   initResizer()
-  // preloadConfetti()
+  if (options.enableAnimations) {
+    preloadConfetti()
+  }
 }
 
 const initOpeners = () => {
-  const additionalButton = null
-  const additionalButtonElement = null
+  // console.log(options.buttonAdditional.selector)
+  const additionalButton = options.buttonAdditional.enable ? document.querySelector(options.buttonAdditional.selector) : null
+  // console.log(options.buttonAdditional.enable ? document.querySelector(options.buttonAdditional.selector) : null)
+  // console.log(`additionalButton: ${additionalButton}`)
 
   modal._element.addEventListener('shown.bs.modal', function(event) {
     hideOpeners()
@@ -28,21 +35,36 @@ const initOpeners = () => {
     window.dispatchEvent(new Event('resize'))
   })
 
-  document.querySelectorAll('.widget-opener, #buttonAction').forEach((el) => {
+  document.querySelectorAll('.widget-opener, #resume-purchase').forEach((el) => {
     el.addEventListener('click', () => modal.show())
   })
 
   // Converts additional button to an opener
   window.addEventListener('load', () => {
-    if (additionalButton && additionalButtonElement) {
+    if (additionalButton) {
+      let newButton
+      let tooltip
+
       setTimeout(() => {
-        additionalButtonElement.removeAttribute('href')
-        additionalButtonElement.replaceWith(additionalButtonElement.cloneNode(true))
-        document.querySelector(additionalButton).addEventListener('click', (e) => {
+        // Cloning and replacing the original element removes all previously attached event listeners
+        newButton = additionalButton.cloneNode(true)
+        newButton.removeAttribute('href')
+        newButton.removeAttribute('target')
+        // Demo tooltip for additional button
+        // newButton.dataset.bsContainer = newButton
+        newButton.dataset.bsTitle = "I can open the demo too!"
+        newButton.dataset.bsToggle = 'tooltip'
+        newButton.dataset.bsSelector = options.buttonAdditional.selector
+        additionalButton.replaceWith(newButton)
+        tooltip = new Tooltip(newButton, {
+          selector: options.buttonAdditional.selector,
+          title: "I can open the demo too!",
+        })
+        newButton.addEventListener('click', (e) => {
           e.preventDefault()
           modal.show()
         })
-      }, 1000)
+      }, 100)
     }
   })
 }
@@ -97,163 +119,8 @@ const updateAmount = (amount) => {
   })
 }
 
-// const doThankYou = () => {
-//   const tsParticlesConfig = {
-//     "fullScreen": {
-//       "zIndex": 99999
-//     },
-//     "emitters": {
-//       "startCount": 30,
-//       "position": {
-//         "x": 50,
-//         "y": 100
-//       },
-//       "size": {
-//         "width": 0,
-//         "height": 0
-//       },
-//       "rate": {
-//         "delay": 0,
-//         "quantity": .1
-//       },
-//       "life": {
-//         "duration": .5,
-//         "count": 1.5
-//       }
-//     },
-//     "particles": {
-//       "move": {
-//         "decay": 0.01,
-//         "direction": "top",
-//         "enable": true,
-//         "gravity": {
-//           "enable": true,
-//           "acceleration": 2,
-//         },
-//         "outModes": {
-//           "top": "none",
-//           "default": "destroy"
-//         },
-//         "speed": {
-//           "min": 20,
-//           "max": 50
-//         }
-//       },
-//       "number": {
-//         "value": 0
-//       },
-//       "opacity": {
-//         "value": 1
-//       },
-//       "rotate": {
-//         "value": {
-//           "min": 0,
-//           "max": 360
-//         },
-//         "direction": "random",
-//         "animation": {
-//           "enable": true,
-//           "speed": 15
-//         }
-//       },
-//       "size": {
-//         "value": 3,
-//         "animation": {
-//           "enable": true,
-//           "startValue": "min",
-//           "count": 1,
-//           "speed": 16,
-//           "sync": true
-//         }
-//       },
-//       "wobble": {
-//         "distance": 30,
-//         "enable": true,
-//         "speed": {
-//           "min": -7,
-//           "max": 7
-//         }
-//       },
-//       "shape": {
-//         "type": "image",
-//         "options": {
-//           "image": [
-//             {
-//               "src": "https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10065/graduation-cap-smiley.png?v=1660152921000",
-//               "width": 64,
-//               "height": 62,
-//               "particles": {
-//                 "size": {
-//                   "value": 32
-//                 }
-//               }
-//             },
-//             {
-//               "src": "https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10065/graduation-cap_01.png?v=1660152918000",
-//               "width": 195,
-//               "height": 117,
-//               "particles": {
-//                 "size": {
-//                   "value": 32
-//                 }
-//               }
-//             },
-//             {
-//               "src": "https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10065/graduation-cap_02.png?v=1660152919000",
-//               "width": 211,
-//               "height": 110,
-//               "particles": {
-//                 "size": {
-//                   "value": 36
-//                 }
-//               }
-//             },
-//             {
-//               "src": "https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10065/graduation-cap_03.png?v=1660152920000",
-//               "width": 218,
-//               "height": 133,
-//               "particles": {
-//                 "size": {
-//                   "value": 38
-//                 }
-//               }
-//             },
-//             {
-//               "src": "https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10065/graduation-cap_04.png?v=1660152920000",
-//               "width": 196,
-//               "height": 115,
-//               "particles": {
-//                 "size": {
-//                   "value": 32
-//                 }
-//               }
-//             },
-//           ]
-//         }
-//       }
-//     },
-//     // "responsive": [
-//     //   {
-//     //     "maxWidth": 1024,
-//     //     "options": {
-//     //       "particles": {
-//     //         "move": {
-//     //           "speed": {
-//     //             "min": 33,
-//     //             "max": 66
-//     //           }
-//     //         }
-//     //       }
-//     //     }
-//     //   }
-//     // ]
-//   }
-//   setTimeout(() => {
-//     tsParticles.load("tsparticles", tsParticlesConfig)
-//   }, 1000)
-// }
-
 const initResizer = () => {
+  const iframe = document.getElementById('donationIframe')
   let ready = false
 
   iFrameResize({
@@ -275,7 +142,11 @@ const initResizer = () => {
           updateAmount(message.value)
           break
         case "thank you":
+          iframe.iFrameResizer.resize()
           complete = true
+          if (options.enableAnimations) {
+            doThankYou()
+          }
           hideOpeners()
           clearSessionStorage()
           break
@@ -284,10 +155,171 @@ const initResizer = () => {
   },
     "#donationIframe"
   )
+  window.addEventListener('resize', () => {
+    iframe.iFrameResizer.resize()
+  })
 }
 
-// const preloadConfetti = () => {
-//   document.body.appendChild(document.getElementById("tsparticles"))
-//   loadConfettiPreset(tsParticles)
-//   loadImageShape(tsParticles)
-// }
+const preloadConfetti = () => {
+  document.body.appendChild(document.getElementById("tsparticles"))
+  loadConfettiPreset(tsParticles)
+  loadHeartShape(tsParticles)
+  loadImageShape(tsParticles)
+  loadStarShape(tsParticles)
+}
+
+const doThankYou = () => {
+  const tsParticlesConfig = {
+    "fullScreen": {
+      "zIndex": 2147483646
+    },
+    "particles": {
+      "number": {
+        "value": 0
+      },
+      "color": {
+        "value": [
+          "#CF4C59",
+          "#CF0E22",
+          "#C10E21",
+          "#990000",
+          "#820915",
+          "#FFFFFF"
+        ]
+      },
+      "shape": {
+        "type": [
+          "heart",
+          "image"
+        ],
+        "options": {
+          "image": [
+            {
+              "src": "https://aaf1a18515da0e792f78-c27fdabe952dfc357fe25ebf5c8897ee.ssl.cf5.rackcdn.com/1666/star.png?v=1664238115000",
+              "width": 26,
+              "height": 28,
+              "particles": {
+                "size": {
+                  "value": 10
+                }
+              }
+            },
+          ]
+        }
+      },
+      "opacity": {
+        "value": 1,
+        "animation": {
+          "enable": true,
+          "minimumValue": 0,
+          "speed": 2,
+          "startValue": "max",
+          "destroy": "min"
+        }
+      },
+      "size": {
+        "value": 8,
+        "random": {
+          "enable": true,
+          "minimumValue": 8
+        }
+      },
+      "links": {
+        "enable": false
+      },
+      "life": {
+        "duration": {
+          "sync": true,
+          "value": 5
+        },
+        "count": 1
+      },
+      "move": {
+        "enable": true,
+        "gravity": {
+          "enable": true,
+          "acceleration": 10
+        },
+        "speed": {
+          "min": 10,
+          "max": 20
+        },
+        "decay": 0.05,
+        "direction": "none",
+        "straight": false,
+        "outModes": {
+          "default": "destroy",
+          "top": "none"
+        }
+      },
+      "rotate": {
+        "value": {
+          "min": 0,
+          "max": 360
+        },
+        "direction": "random",
+        "move": true,
+        "animation": {
+          "enable": true,
+          "speed": 60
+        }
+      },
+      "tilt": {
+        "direction": "random",
+        "enable": true,
+        "move": true,
+        "value": {
+          "min": 0,
+          "max": 360
+        },
+        "animation": {
+          "enable": true,
+          "speed": 60
+        }
+      },
+      "roll": {
+        "darken": {
+          "enable": true,
+          "value": 25
+        },
+        "enable": true,
+        "speed": {
+          "min": 15,
+          "max": 25
+        }
+      },
+      "wobble": {
+        "distance": 30,
+        "enable": true,
+        "move": true,
+        "speed": {
+          "min": -15,
+          "max": 15
+        }
+      }
+    },
+    "emitters": {
+      "position": {
+        "x": 50,
+        "y": 0
+      },
+      "life": {
+        "count": 1,
+        "duration": 0.1,
+        "delay": 0.4
+      },
+      "rate": {
+        "delay": 0.1,
+        "quantity": 150
+      },
+      "size": {
+        "width": 0,
+        "height": 0
+      }
+    }
+  }
+
+  setTimeout(() => {
+    tsParticles.load("tsparticles", tsParticlesConfig)
+  }, 500)
+}

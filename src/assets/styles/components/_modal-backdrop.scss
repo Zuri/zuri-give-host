@@ -1,0 +1,10 @@
+.modal-backdrop {
+  background-color: $modal-backdrop-bg;
+  height: 100vh;
+  left: 0;
+  opacity: $modal-backdrop-opacity;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: $zindex-modal-backdrop;
+}
