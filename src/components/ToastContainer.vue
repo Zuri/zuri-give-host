@@ -29,12 +29,42 @@
 </template>
 
 <script>
-import { options } from '../../public/config'
+import { options } from "../../public/config"
 export default {
-  name: 'ToastContainer',
+  name: "ToastContainer",
   mounted() {
-    document.querySelectorAll('.js-toast-text-prefix').forEach((el) => (el.textContent = options.toastMessage.prefix))
-    document.querySelectorAll('.js-toast-text-suffix').forEach((el) => (el.textContent = options.toastMessage.suffix))
+    function setButtonColors(button) {
+      console.log("setButtonColors", button)
+      const buttonBackgroundColor = options.toast.button.backgroundColor
+      const buttonBackgroundColorHover = options.toast.button.backgroundColorHover
+      const buttonTextColor = options.toast.button.textColor
+      const buttonTextColorHover = options.toast.button.textColorHover
+
+      if (buttonBackgroundColor) {
+        button.style.setProperty("--zg-btn-bg", buttonBackgroundColor)
+        button.style.setProperty("--zg-btn-active-bg", buttonBackgroundColor)
+        button.style.setProperty("--zg-btn-border-color", buttonBackgroundColor)
+        button.style.setProperty("--zg-btn-active-border-color", buttonBackgroundColor)
+      }
+
+      if (buttonBackgroundColorHover) {
+        button.style.setProperty("--zg-btn-hover-bg", buttonBackgroundColorHover)
+        button.style.setProperty("--zg-btn-hover-border-color", buttonBackgroundColorHover)
+      }
+
+      if (buttonTextColor) {
+        button.style.setProperty("--zg-btn-color", buttonTextColor)
+        button.style.setProperty("--zg-btn-active-color", buttonTextColor)
+      }
+
+      if (buttonTextColorHover) {
+        button.style.setProperty("--zg-btn-hover-color", buttonTextColorHover)
+      }
+    }
+
+    document.querySelectorAll(".toast-container .btn").forEach((el) => setButtonColors(el))
+    document.querySelectorAll(".js-toast-text-prefix").forEach((el) => (el.textContent = options.toast.message.prefix))
+    document.querySelectorAll(".js-toast-text-suffix").forEach((el) => (el.textContent = options.toast.message.suffix))
   },
 }
 </script>

@@ -54,13 +54,29 @@ export default {
 
     function setButtonColors(button) {
       const buttonBackgroundColor = options.button.backgroundColor
+      const buttonBackgroundColorHover = options.button.backgroundColorHover
       const buttonTextColor = options.button.textColor
+      const buttonTextColorHover = options.button.textColorHover
 
       if (buttonBackgroundColor) {
-        button.style.setProperty("--zg-btn-bg-color", buttonBackgroundColor)
+        button.style.setProperty("--zg-btn-bg", buttonBackgroundColor)
+        button.style.setProperty("--zg-btn-active-bg", buttonBackgroundColor)
+        button.style.setProperty("--zg-btn-border-color", buttonBackgroundColor)
+        button.style.setProperty("--zg-btn-active-border-color", buttonBackgroundColor)
       }
+
+      if (buttonBackgroundColorHover) {
+        button.style.setProperty("--zg-btn-hover-bg", buttonBackgroundColorHover)
+        button.style.setProperty("--zg-btn-hover-border-color", buttonBackgroundColorHover)
+      }
+
       if (buttonTextColor) {
         button.style.setProperty("--zg-btn-color", buttonTextColor)
+        button.style.setProperty("--zg-btn-active-color", buttonTextColor)
+      }
+
+      if (buttonTextColorHover) {
+        button.style.setProperty("--zg-btn-hover-color", buttonTextColorHover)
       }
     }
 

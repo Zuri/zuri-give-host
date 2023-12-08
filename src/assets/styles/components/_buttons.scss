@@ -1,16 +1,5 @@
 .btn-primary {
-  &,
-  &:not(:hover):not(:active):not(.has-background) {
-    background-color: $primary !important;
-    border-color: $primary !important;
-    color: $white !important;
-  }
-
-  &:hover {
-    background-color: lighten($primary, 10%) !important;
-    border-color: lighten($primary, 10%) !important;
-    color: $white !important;
-  }
+  transition: $transition-base;
 }
 
 .btn-link {
