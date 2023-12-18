@@ -3,6 +3,9 @@
   const zgOptions = {
     autoOpen: false, // Should the modal open on page load - true | false
     baseUrl: "give.oxfamamerica.org", // EN base URL
+    additionalUrlParams: { // Additional URL parameters to add to the EN URL - object
+      foo: "bar",
+    },
     button: { // Fixed button that opens the modal
       enable: true, // Toggles button vivbility - true | false
       backgroundColor: "#f16e22", // Button background color
