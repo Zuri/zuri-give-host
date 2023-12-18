@@ -1,0 +1,41 @@
+<div id="zuriGive" class="zuri-give"></div>
+<script>
+  const zgOptions = {
+    autoOpen: false, // Should the modal open on page load - true | false
+    baseUrl: "give.oxfamamerica.org", // EN base URL
+    button: { // Fixed button that opens the modal
+      enable: true, // Toggles button vivbility - true | false
+      backgroundColor: "#f16e22", // Button background color
+      backgroundColorHover: "#bb4c0c", // Button background color on hover
+      textColor: "#fff", // Button color
+      textColorHover: "#fff", // Button color on hover
+      placement: {
+        x: "right", // Where to place button horizontally - left | center | right
+        y: "center", // Where to place the button vertically - top | center | bottom
+      },
+      text: "Donate Now", // Text for widget opener button - string
+    },
+    additionalButtons: { // Additional buttons that open the modal
+      enable: true, // Toggles additional button. Setting this to true will overwrite any existing event handlers - true | false
+      selectors: [  // CSS selectors for additional buttons - array of strings
+      ]
+    },
+    enableAnimations: false, // Toggles animations - true | false
+    formId: 60339, // EN form ID - integer
+    formType: "donate", // EN page type - data-capture | donate | emailtotarget | petition | survey | tweettotarget
+    toast: {
+      button: {
+        backgroundColor: "#f16e22", // Button background color
+        backgroundColorHover: "#bb4c0c", // Button background color on hover
+        textColor: "#fff", // Button color
+        textColorHover: "#fff", // Button color on hover
+      },
+      message: {
+        prefix: "Complete my", // Toast text before gift amount and recurrence - string
+        suffix: "gift!", // Toast text after gift amount and recurrence - string
+      }
+    }
+  }
+</script>
+<link href='[your path]/ZuriGive.css' rel="stylesheet">
+<script src='[your path]ZuriGive.js'></script>

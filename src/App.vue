@@ -13,7 +13,7 @@ import ToggleModalButton from "./components/ToggleModalButton"
 import ToastContainer from "./components/ToastContainer"
 
 export default {
-  name: "App",
+  name: "ZuriGive",
   components: {
     ToastContainer,
     ToggleModalButton,

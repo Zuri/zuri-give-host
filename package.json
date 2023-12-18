@@ -1,9 +1,9 @@
 {
-  "name": "webpack-5-vue-donation-widget",
+  "name": "zuri-give",
   "version": "2.0.0",
-  "description": "A webpack 5 donation widget build with Vue.js",
+  "description": "Zuri Give donation widget build with Vue.js",
   "main": "main.js",
-  "author": "Deron Hurst",
+  "author": "Zuri Group",
   "license": "UNLICENSED",
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js --progress",
