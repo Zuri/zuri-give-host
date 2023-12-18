@@ -18,8 +18,18 @@ export function createFormSource() {
   // let output = `https://${options.baseUrl}/page/${options.formId}/${options.formType}/1${enProfileIdText}${enAppealCodeText}`
 
   let searchParams = new URLSearchParams(document.location.search)
-  let newSearchParams = `?${searchParams.toString().replace(/ea_profile_id/, 'ea.profile.id').replace(/ea_tracking_id/, 'ea.tracking.id').replace(/supporter_appealCode/, 'supporter.appealCode')}`
-  let output = `https://${options.baseUrl}/page/${options.formId}/${options.formType}/1${typeof newSearchParams !== 'undefined' ? newSearchParams : ''}`
+  let newSearchParams = `?${searchParams
+    .toString()
+    .replace(/ea_profile_id/, "ea.profile.id")
+    .replace(/ea_tracking_id/, "ea.tracking.id")
+    .replace(/supporter_appealCode/, "supporter.appealCode")}`
+
+  const additionalUrlParams = options.additionalUrlParams ? options.additionalUrlParams : {}
+  Object.keys(additionalUrlParams).forEach((key) => {
+    newSearchParams += `${typeof newSearchParams !== "undefined" ? "&" : "?"}${key}=${additionalUrlParams[key]}`
+  })
+
+  let output = `https://${options.baseUrl}/page/${options.formId}/${options.formType}/1${typeof newSearchParams !== "undefined" ? newSearchParams : ""}`
 
   // --> Testing <--
   console.log("FORM DATA OUTPUT URL: ", output)
